@@ -9,9 +9,9 @@ services:
     volumes:
       - .:/var/www/html
       - ./storage:/var/www/html/storage
-      - bootstrap_cache:/var/www/html/bootstrap/cache
-      - node_modules:/var/www/html/node_modules
-      - vendor:/var/www/html/vendor
+      - /var/www/html/bootstrap/cache
+      - /var/www/html/node_modules
+      - /var/www/html/vendor
     ports:
       - "8000:8000"
     networks:
@@ -35,7 +35,7 @@ services:
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html
-      - node_modules:/var/www/html/node_modules
+      - /var/www/html/node_modules
     ports:
       - "5173:5173"
     networks:
@@ -65,6 +65,3 @@ networks:
 volumes:
   dbdata:
     driver: local
-  node_modules:
-  vendor:
-  bootstrap_cache:
