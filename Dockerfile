@@ -10,6 +10,10 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip
 
+# Install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs
+
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -27,6 +31,9 @@ COPY . /var/www/html
 
 # Install dependencies
 RUN composer install --no-interaction --optimize-autoloader --no-dev
+
+# Install npm dependencies
+RUN npm install
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
