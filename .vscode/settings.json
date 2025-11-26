@@ -1,4 +1,7 @@
 {
-    "php.version": "8.3",
-    "Laravel.phpEnvironment": "local"
+	"php.version": "8.3",
+	"Laravel.phpEnvironment": "local",
+	"files.associations": {
+		"*.css": "tailwindcss"
+	}
 }
